@@ -1,14 +1,17 @@
 package com.mycompany.app;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.*;
 
-import org.junit.Test;
+import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest 
 {
+    LoginPage loginPage = new LoginPage();
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertTrue( true );
+        open("https://ok.ru");
+        loginPage.login("technoPol3", "Technopolis2022");
     }
 }
