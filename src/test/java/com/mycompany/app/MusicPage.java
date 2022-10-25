@@ -18,7 +18,8 @@ public class MusicPage {
     }
 
     public SelenideElement getFirstTrack(){
-        SelenideElement firstTrack = $(By.xpath("//wm-tracks-list/wm-track"));
+        //*[@id="music_layer"]/main/div/div[2]/div/search-page/wm-portlet/slot/wm-tracks-list/main/wm-track[1]
+        SelenideElement firstTrack = $(By.xpath("//wm-tracks-list/wm-track[1]"));
         return firstTrack;
     }
 
