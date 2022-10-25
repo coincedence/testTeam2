@@ -10,7 +10,11 @@ import static com.codeborne.selenide.Selenide.actions;
 public class MusicPage {
 
     private final SelenideElement findField = $(By.xpath("//wm-search-input/input"));
-
+    private final SelenideElement options = $(By.xpath("//wm-track-actions"));
+    private final SelenideElement shareButton = $(By.xpath("//wm-tico[@icon='ico_reshare_16']"));
+    private final SelenideElement addTextButton = $(By.xpath("//wm-tico[@icon='ico_compose_16']"));
+    private final SelenideElement finalShareButton = $(By.xpath("//div[@title='Поделиться']"));
+    private final SelenideElement firstTrack = $(By.xpath("//wm-tracks-list//wm-track[1]"));
     public void find(String query){
         findField.click();
         findField.setValue(query);
@@ -18,21 +22,14 @@ public class MusicPage {
     }
 
     public SelenideElement getFirstTrack(){
-        SelenideElement firstTrack = $(By.xpath("//wm-tracks-list//wm-track[1]"));
         return firstTrack;
     }
 
     public void addTrack(SelenideElement track) {
         track.hover();
-        SelenideElement options = $(By.xpath("//wm-track-actions"));
         options.click();
-        SelenideElement actionsMenu = $(By.xpath("wm-track-actions-menu"));
-        SelenideElement shareButton = $(By.xpath("//wm-tico[@icon='ico_reshare_16']"));
         shareButton.click();
-        SelenideElement addTextButton = $(By.xpath("//wm-tico[@icon='ico_compose_16']"));
         addTextButton.click();
-        SelenideElement finalShareButton = $(By.xpath("//div[@title='Поделиться']"));
         finalShareButton.click();
-
     }
 }
