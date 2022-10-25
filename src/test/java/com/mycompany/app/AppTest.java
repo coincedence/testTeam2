@@ -19,7 +19,6 @@ public class AppTest
         userPage.click();
         musicPage.find("toxic britney spears");
         musicPage.addTrack(musicPage.getFirstTrack());
-
-        // assertEquals("", userPage.takeSongName());
+        assertEquals("Toxic - Britney Spears - Karaoke", userPage.takeSongName());
     }
 }

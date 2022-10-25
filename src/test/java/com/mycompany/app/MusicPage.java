@@ -18,14 +18,13 @@ public class MusicPage {
     }
 
     public SelenideElement getFirstTrack(){
-        //*[@id="music_layer"]/main/div/div[2]/div/search-page/wm-portlet/slot/wm-tracks-list/main/wm-track[1]
-        SelenideElement firstTrack = $(By.xpath("//wm-tracks-list/wm-track[1]"));
+        SelenideElement firstTrack = $(By.xpath("//wm-tracks-list//wm-track[1]"));
         return firstTrack;
     }
 
     public void addTrack(SelenideElement track) {
-        actions().moveToElement(track);
-        SelenideElement options = $(By.name("controls"));
+        track.hover();
+        SelenideElement options = $(By.xpath("//wm-track-actions"));
         options.click();
         SelenideElement actionsMenu = $(By.xpath("wm-track-actions-menu"));
         SelenideElement shareButton = $(By.xpath("//wm-tico[@icon='ico_reshare_16']"));
@@ -34,5 +33,6 @@ public class MusicPage {
         addTextButton.click();
         SelenideElement finalShareButton = $(By.xpath("//div[@title='Поделиться']"));
         finalShareButton.click();
+
     }
 }
